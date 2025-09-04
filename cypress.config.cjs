@@ -6,11 +6,14 @@ module.exports = cypress.defineConfig({
         uncaughtCypressException: false,
         hideXhr: true,
     },
+
     chromeWebSecurity: false,
+
     retries: {
         runMode: 1,
         openMode: 0,
     },
+
     // blockHosts: ['!*localhost*'],
     component: {
         devServer: {
@@ -20,5 +23,12 @@ module.exports = cypress.defineConfig({
         specPattern: 'src/**/*.test.tsx',
         viewportWidth: 680,
         viewportHeight: 768,
+    },
+
+    e2e: {
+        setupNodeEvents(on, config) {
+            // implement node event listeners here
+        },
+        baseUrl: 'http://localhost:5173',
     },
 });

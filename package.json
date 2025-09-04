@@ -17,7 +17,10 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "test:unit:coverage": "vitest run --coverage",
-    "test:integration": "cypress open --component --browser electron"
+    "test:integration": "cypress open --component --browser electron",
+    "test:e2e": "cypress run --e2e --browser electron",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
