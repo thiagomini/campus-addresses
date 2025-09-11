@@ -45,17 +45,6 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version-file: .node-version
-                  cache: pnpm
-                  cache-dependency-path: ./pnpm-lock.yaml
-
-            - name: Cache Cypress binary
-              uses: actions/cache@v4
-              with:
-                  path: /home/runner/.cache/Cypress
-                  key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-                  restore-keys: |
-                      cypress-cache-${{ runner.os }}-
-
             - name: Install Dependencies
               run: pnpm install --frozen-lockfile
 
