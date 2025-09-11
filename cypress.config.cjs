@@ -21,4 +21,5 @@ module.exports = cypress.defineConfig({
         viewportWidth: 680,
         viewportHeight: 768,
     },
+    projectId: process.env.CYPRESS_PROJECT_ID,
 });

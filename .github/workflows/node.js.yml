@@ -15,11 +15,6 @@ on:
                 description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
                 required: false
                 default: false
-            record_tests:
-                type: boolean
-                description: 'Record the tests with Cypress Dashboard (https://docs.cypress.io/guides/dashboard/introduction)'
-                required: false
-                default: false
 
 concurrency:
     group: ci-${{ github.ref }}
@@ -29,6 +24,7 @@ env:
     NODE_ENV: test
     CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
     CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+    CYPRESS_PROJECT_ID: ${{ vars.CYPRESS_PROJECT_ID }}
 
 jobs:
     build:
@@ -57,6 +53,9 @@ jobs:
             - name: Integration Tests
               uses: cypress-io/github-action@v6
               with:
-                  record: ${{ github.event.inputs.record_tests || false }}
-                  browser: electron
+                  record: true
                   component: true
+                  browser: electron
+              env:
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
