@@ -4,6 +4,6 @@ describe('Booting the app', () => {
     it('successfully boots the app', () => {
         cy.mount(<App />, '/');
 
-        cy.contains('Space Ticket app').should('be.visible');
+        cy.contains('Campus').should('be.visible');
     });
 });

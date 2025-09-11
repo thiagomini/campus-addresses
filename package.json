@@ -15,9 +15,11 @@
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --report-unused-disable-directives --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md}'",
     "preview": "vite preview",
-    "test:unit": "vitest",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
     "test:unit:coverage": "vitest run --coverage",
-    "test:integration": "cypress open --component --browser electron"
+    "test:integration": "cypress run --component --browser electron",
+    "test:integration:open": "cypress open --component --browser electron"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
