@@ -48,9 +48,6 @@ jobs:
                   cache: pnpm
                   cache-dependency-path: ./pnpm-lock.yaml
 
-            - name: Configure pnpm
-              run: pnpm config set side-effects-cache false --location project && pnpm --allow-build=cypress add --save-dev cypress
-
             - name: Install Dependencies
               run: pnpm install --frozen-lockfile
 
