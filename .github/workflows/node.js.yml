@@ -53,3 +53,10 @@ jobs:
 
             - name: Unit Tests
               run: pnpm run test:unit
+
+            - name: Integration Tests
+              uses: cypress-io/github-action@v6
+              with:
+                  record: ${{ github.event.inputs.record_tests || false }}
+                  browser: electron
+                  component: true
