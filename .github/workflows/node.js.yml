@@ -59,3 +59,18 @@ jobs:
               env:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Build Application
+              run: pnpm run build
+
+            - name: E2E Tests
+              uses: cypress-io/github-action@v6
+              with:
+                  install: false
+                  start: pnpm run start
+                  record: true
+                  browser: electron
+                  wait-on: 'http://localhost:5173'
+              env:
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

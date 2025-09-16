@@ -19,7 +19,9 @@
     "test:unit:watch": "vitest",
     "test:unit:coverage": "vitest run --coverage",
     "test:integration": "cypress run --component --browser electron",
-    "test:integration:open": "cypress open --component --browser electron"
+    "test:integration:open": "cypress open --component --browser electron",
+    "test:e2e": "cypress run --browser electron",
+    "cy:open": "cypress open"
   },
   "packageManager": "pnpm@10.10.0",
   "dependencies": {
