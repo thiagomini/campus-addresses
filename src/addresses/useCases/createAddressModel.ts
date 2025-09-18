@@ -26,7 +26,7 @@ export const createAddressModel = (fields:Fields) => {
 
       return {
         ...result,
-        [key]: string().required(`${field.label} is missing.`),
+        [key]: string(),
       };
     }, {});
     const address = object(schema).validateSync(data, { abortEarly: false });

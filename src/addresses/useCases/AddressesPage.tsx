@@ -15,7 +15,9 @@ export const AddressesPage = () => {
 
     const {validate} = createAddressModel(fields || {});
     const handleTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        const [x, setX] = useState(e.target.value);
         setSelected(e.target.value);
+        console.log(x, setX);
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

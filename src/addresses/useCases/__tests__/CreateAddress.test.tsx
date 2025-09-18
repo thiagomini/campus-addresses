@@ -3,11 +3,6 @@ import { App } from '../../../App';
 describe('Create Address', () => {
     it('create local address', () => {
         cy.intercept('GET', '**/address-fields/local', {
-            // body: createAddressFields()
-            //     .withStreet({ isRequired: true })
-            //     .withZip({ isRequired: true })
-            //     .withCity({ isRequired: true })
-            //     .withCountry({ isDisabled: true, value: 'AT' }),
             body: {
                 street: {
                     label: 'Street',
@@ -60,11 +55,6 @@ describe('Create Address', () => {
     it('create international address', () => {
         cy.intercept('GET', '**/address-fields/local', { body: {} });
         cy.intercept('GET', '**/address-fields/international', {
-            // body: createAddressFields()
-            //     .withStreet({ isRequired: true })
-            //     .withZip({ isRequired: true })
-            //     .withCity({ isRequired: true })
-            //     .withCountry({ isRequired: true }),
             body: {
                 street: {
                     // streetName
